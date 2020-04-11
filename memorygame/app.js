@@ -75,14 +75,20 @@
     // flip a card
     function flipCard() {
         var cardID = this.getAttribute('card-id')
+        if(cardID == cardsIDChosen[0]){
+            alert('Nice try, but you cannot choose the same card! Try a different card.')
+            return
+        }
         cardsChosen.push(cardArray[cardID].name)
         cardsIDChosen.push(cardID)
 
-        //var matchchecker = this.src.toString
+        // check if the card has been matched already
         if(this.src.includes("images/white.png")){
             alert('Please choose a card still in play.')
             return
         }
+        
+        
         this.setAttribute('src', cardArray[cardID].img) // set src to image of card to reveal it
         if (cardsChosen.length === 2) {
             setTimeout(checkMatch, 500)
