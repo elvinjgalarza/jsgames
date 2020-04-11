@@ -76,17 +76,17 @@
     function flipCard() {
         var cardID = this.getAttribute('card-id')
         if(cardID == cardsIDChosen[0]){
-            alert('Nice try, but you cannot choose the same card! Try a different card.')
+            alert('Im sorry, Dave, Im afraid I cant do that. I think you know what the problem is just as well as I do.')
             return
         }
-        cardsChosen.push(cardArray[cardID].name)
-        cardsIDChosen.push(cardID)
-
         // check if the card has been matched already
         if(this.src.includes("images/white.png")){
             alert('Please choose a card still in play.')
             return
         }
+        
+        cardsChosen.push(cardArray[cardID].name)
+        cardsIDChosen.push(cardID)
         
         
         this.setAttribute('src', cardArray[cardID].img) // set src to image of card to reveal it
