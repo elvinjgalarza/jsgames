@@ -78,6 +78,11 @@
         cardsChosen.push(cardArray[cardID].name)
         cardsIDChosen.push(cardID)
 
+        //var matchchecker = this.src.toString
+        if(this.src.includes("images/white.png")){
+            alert('Please choose a card still in play.')
+            return
+        }
         this.setAttribute('src', cardArray[cardID].img) // set src to image of card to reveal it
         if (cardsChosen.length === 2) {
             setTimeout(checkMatch, 500)
@@ -92,7 +97,9 @@
         if (cardsChosen[0] == cardsChosen[1]) {
             alert('You have found a match!')
             cards[ID1].setAttribute('src', 'images/white.png')
+            cards[ID1].setAttribute('className', 'match')
             cards[ID2].setAttribute('src', 'images/white.png')
+            cards[ID2].setAttribute('className', 'match')
             cardPair.push(cardsChosen)
         } else {
             cards[ID1].setAttribute('src', 'images/cloud.jpg')
